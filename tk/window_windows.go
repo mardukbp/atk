@@ -4,6 +4,10 @@ package tk
 
 import "fmt"
 
+func (w *Window) SetToolwindow() error {
+	return eval(fmt.Sprintf("wm attributes %v -toolwindow 1", w.id))
+}
+
 func (w *Window) ShowMaximized() error {
 	return eval(fmt.Sprintf("wm state %v zoomed", w.id))
 }
