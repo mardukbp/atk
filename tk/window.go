@@ -176,6 +176,10 @@ func (w *Window) SetNaturalSize() error {
 	return eval(fmt.Sprintf("wm geometry %v {}", w.id))
 }
 
+func (w *Window) SetOverrideRedirect(status bool) error {
+	return eval(fmt.Sprintf("wm overrideredirect %v %v", w.id, boolToInt(status)))
+}
+
 func (w *Window) SetResizable(enableWidth bool, enableHeight bool) error {
 	return eval(fmt.Sprintf("wm resizable %v %v %v", w.id, boolToInt(enableWidth), boolToInt(enableHeight)))
 }
